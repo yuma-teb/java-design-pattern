@@ -1,5 +1,7 @@
 package src.singleton.SingletonPractice;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class Server {
@@ -19,8 +21,9 @@ public class Server {
         return server;
     }
 
-    public boolean isHTTP(String serverName) {
-        return serverName.toLowerCase().startsWith("http");
+    public boolean isHTTP(URL url) throws IOException {
+        System.out.println("http".equals(url.getProtocol()));
+        return "http".equals(url.getProtocol());
     }
 
     // Create a funnction for add element to the server
@@ -41,6 +44,7 @@ public class Server {
             }
         }
 
+        System.out.println("Server result" + httpServers);
         return httpServers;
     }
 

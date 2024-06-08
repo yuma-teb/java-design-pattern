@@ -32,10 +32,19 @@ public class Main {
           // Insert the server to server list
           break;
         case 2:
-          Server.getServerInstance().getHttpServer();
+          for (String element : Server.getServerInstance().getHttpServer()) {
+            System.out.println("HTTP " + element);
+          }
           break;
         case 3:
-          Server.getServerInstance().getHttpsSever();
+          System.out.println("Working here");
+          if (!Server.getServerInstance().getHttpsSever().isEmpty()) {
+            System.out.println("No HTTPS servers.");
+          } else {
+            for (String element : Server.getServerInstance().getHttpsSever()) {
+              System.out.println("HTTPS :" + element);
+            }
+          }
           break;
         case 4:
           ChocolateFactory.getChocolateInstance().resetBoiler();
